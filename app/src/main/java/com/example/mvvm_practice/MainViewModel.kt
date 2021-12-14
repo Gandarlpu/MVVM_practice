@@ -3,11 +3,12 @@ package com.example.mvvm_practice
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.viewModelScope
 import androidx.room.Room
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainViewModel(application: Application) : AndroidViewModel(application) {
-
-    //androidViewModel을 상속받는데 요놈은 application을 매개변수로 받아와야함
 
     //Room DB init
     private val db = Room.databaseBuilder(
@@ -18,14 +19,20 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         //.allowMainThreadQueries()
         .build()
 
+    var todos : LiveData<List<Todo>>
 
+    var newTodo : String? = null
+    init {
+        todos = getAll()
+    }
 
     fun getAll() : LiveData<List<Todo>>{
         return db.todoDao().getAll()
     }
 
-    //suspend을 하면 해당 함수는 반드시 코루틴을 동반하여 사용해야 함
-    suspend fun insert(todo : Todo){
-        return db.todoDao().insert(todo)
+    fun insert(todo : String){
+        viewModelScope.launch(Dispatchers.IO){
+            db.todoDao().insert(Todo(todo))
+        }
     }
 }
