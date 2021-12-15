@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,6 +19,52 @@
         tools:layout_editor_absoluteX="171dp"
         tools:layout_editor_absoluteY="281dp"
         tools:ignore="MissingConstraints" />
+=======
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.example.mvvm_practice.MainViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+        <EditText
+            android:id="@+id/todo_edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:ems="10"
+            android:hint="할 일 "
+            android:inputType="textPersonName"
+            android:text="@={viewModel.newTodo}"
+            app:layout_constraintEnd_toStartOf="@+id/add_btn"
+            tools:layout_editor_absoluteY="36dp" />
+
+        <Button
+            android:id="@+id/add_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="추가"
+            android:onClick="@{() -> viewModel.insert(viewModel.newTodo)}"
+            tools:layout_editor_absoluteX="300dp"
+            tools:layout_editor_absoluteY="38dp" />
+
+        <TextView
+            android:id="@+id/result_text"
+            android:text="@{viewModel.todos.toString()}"
+            android:layout_width="match_parent"
+            android:layout_height="596dp"
+            android:layout_marginTop="40dp" />
+>>>>>>> main
 
     <EditText
         android:id="@+id/userInput_edittext"
@@ -28,6 +75,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/number_textview" />
 
+<<<<<<< HEAD
     <Button
         android:id="@+id/plus_btn"
         android:layout_width="wrap_content"
@@ -49,3 +97,8 @@
         app:layout_constraintTop_toBottomOf="@+id/number_textview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+=======
+    </LinearLayout>
+
+</layout>
+>>>>>>> main

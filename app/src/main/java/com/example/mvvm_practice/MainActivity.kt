@@ -2,13 +2,25 @@ package com.example.mvvm_practice
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+<<<<<<< HEAD
 import android.util.Log
 import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+=======
+import androidx.activity.viewModels
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.get
+import androidx.lifecycle.lifecycleScope
+>>>>>>> main
 import androidx.room.Room
+import com.example.mvvm_practice.databinding.ActivityMainBinding
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity(), View.OnClickListener{
 
@@ -21,8 +33,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        val binding = DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
+        binding.lifecycleOwner = this //LiveData를 사용하기 위함
 
+<<<<<<< HEAD
         // 뷰 모델 프로바이더를 통해 뷰 모델 가져오기
         // 라이프사이클을 가지고 있는 녀석을 넣어줌 즉, 자기 자신
         // 우리가 가져오고 싶은 뷰 모델 클래스를 넣어서 뷰 모델을 가져오기
@@ -36,6 +50,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener{
 
         plus_btn.setOnClickListener(this)
         minus_btn.setOnClickListener(this)
+=======
+        //val viewModel = ViewModelProvider(this@MainActivity).get(MainViewModel::class.java)
+        val viewModel : MainViewModel by viewModels()
+        binding.viewModel = viewModel
+
+
+>>>>>>> main
 
     }
 
