@@ -1,25 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".MainActivity"
-    tools:layout_editor_absoluteX="5dp"
-    tools:layout_editor_absoluteY="14dp">
-
-    <TextView
-        android:id="@+id/number_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello"
-        android:textSize="30dp"
-        tools:layout_editor_absoluteX="171dp"
-        tools:layout_editor_absoluteY="281dp"
-        tools:ignore="MissingConstraints" />
-=======
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,77 +7,53 @@
     <data>
         <variable
             name="viewModel"
-            type="com.example.mvvm_practice.MainViewModel" />
+            type="com.example.mvvm_practice.CounterViewModel" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:context=".MainActivity">
 
-        <EditText
-            android:id="@+id/todo_edit"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:ems="10"
-            android:hint="할 일 "
-            android:inputType="textPersonName"
-            android:text="@={viewModel.newTodo}"
-            app:layout_constraintEnd_toStartOf="@+id/add_btn"
-            tools:layout_editor_absoluteY="36dp" />
-
-        <Button
-            android:id="@+id/add_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="추가"
-            android:onClick="@{() -> viewModel.insert(viewModel.newTodo)}"
-            tools:layout_editor_absoluteX="300dp"
-            tools:layout_editor_absoluteY="38dp" />
 
         <TextView
-            android:id="@+id/result_text"
-            android:text="@{viewModel.todos.toString()}"
-            android:layout_width="match_parent"
-            android:layout_height="596dp"
-            android:layout_marginTop="40dp" />
->>>>>>> main
+            android:id="@+id/count_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="268dp"
+            android:textSize="80sp"
+            android:text="@{viewModel.count.toString()}"
+            app:layout_constraintBottom_toTopOf="@+id/fab_add"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.523"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/userInput_edittext"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toStartOf="@+id/plus_btn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/number_textview" />
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="608dp"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.increase()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.824"
+            app:layout_constraintStart_toEndOf="@+id/count_text_view"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_add" />
 
-<<<<<<< HEAD
-    <Button
-        android:id="@+id/plus_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="더하기"
-        app:layout_constraintEnd_toStartOf="@+id/minus_btn"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/userInput_edittext"
-        app:layout_constraintTop_toBottomOf="@+id/number_textview" />
-
-    <Button
-        android:id="@+id/minus_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="뺴기"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/plus_btn"
-        app:layout_constraintTop_toBottomOf="@+id/number_textview" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
-=======
-    </LinearLayout>
-
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="116dp"
+            android:clickable="true"
+            android:onClick="@{() -> viewModel.decrease()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.126"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/count_text_view"
+            app:srcCompat="@drawable/ic_remove" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
->>>>>>> main
