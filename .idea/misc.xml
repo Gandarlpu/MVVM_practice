@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/82107/AndroidStudioProjects/mvvm_practice/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/82107/AndroidStudioProjects/mvvm_practice/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/82107/AndroidStudioProjects/mvvm_practice/app/src/main/res/layout/activity_vmshare.xml" value="0.25364583333333335" />
+        <entry key="..\:/Users/82107/AndroidStudioProjects/mvvm_practice/app/src/main/res/layout/fragment_seekbar.xml" value="0.25364583333333335" />
       </map>
     </option>
   </component>
